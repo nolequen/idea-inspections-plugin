@@ -1,0 +1,12 @@
+<idea-plugin>
+	<id>ExtraJavaInspections</id>
+	<name>Extra Java Inspections</name>
+	<version>0.1</version>
+	<description>Some extra Java inspections.</description>
+	<idea-version since-build="139.0" />
+	<application-components>
+		<component>
+			<implementation-class>inspections.InspectionRegistration</implementation-class>
+		</component>
+	</application-components>
+</idea-plugin>

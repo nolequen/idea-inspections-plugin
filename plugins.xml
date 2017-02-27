@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin-repository>
+	<ff>"Inspection"</ff>
+	<category name="Inspection">
+		<idea-plugin url='https://bitbucket.org/nolequen/idea-inspections'>
+			<download-url>https://bitbucket.org/nolequen/idea-inspections/downloads/inspections.jar</download-url>
+			<id>ExtraJavaInspections</id>
+			<name>Extra Java Inspections</name>
+			<version>0.1</version>
+			<description>Some extra Java inspections.</description>
+		</idea-plugin>
+	</category>
+</plugin-repository>
