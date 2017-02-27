@@ -4,8 +4,6 @@ import com.intellij.codeInspection.InspectionToolProvider;
 import com.intellij.openapi.components.ApplicationComponent;
 import org.jetbrains.annotations.NotNull;
 
-//todo: implement FinalOrAbstactInspection
-//todo: implement StaticSynchronizedInspection
 public final class InspectionRegistration implements ApplicationComponent, InspectionToolProvider {
 
   public InspectionRegistration() {
