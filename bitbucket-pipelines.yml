@@ -1,0 +1,7 @@
+pipelines:
+  default:
+    - step:
+        script:
+          - pip install -U tox
+          - tox
+          - ./analyze-with-code-climate.bash
