@@ -1,5 +1,0 @@
-pipelines:
-  default:
-    - step:
-        script:
-          - ./analyze-with-code-climate.bash
