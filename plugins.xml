@@ -6,7 +6,7 @@
 			<download-url>https://bitbucket.org/nolequen/idea-inspections/downloads/inspections.jar</download-url>
 			<id>ExtraJavaInspections</id>
 			<name>Extra Java Inspections</name>
-			<version>0.1</version>
+			<version>0.2</version>
 			<description>Some extra Java inspections.</description>
 		</idea-plugin>
 	</category>

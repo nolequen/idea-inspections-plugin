@@ -28,6 +28,6 @@ public final class InspectionRegistration implements ApplicationComponent, Inspe
   @Override
   @NotNull
   public Class<?>[] getInspectionClasses() {
-    return new Class<?>[]{NotNullInspection.class};
+    return new Class<?>[]{NotNullInspection.class, FinalOrAbstractClassInspection.class};
   }
 }
