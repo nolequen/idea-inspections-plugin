@@ -3,6 +3,7 @@
 ### Inspections List ###
 
 * `@NotNull`/`@Nullable` annotation missing or used incorrectly
+* Final or abstract class rule
 
 ### Plugin Repository ###
 
