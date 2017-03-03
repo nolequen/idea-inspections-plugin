@@ -7,4 +7,4 @@
 
 ### Plugin Repository ###
 
-To be able to download and update the plugin in regular IntelliJ IDEA way, please, follow "[Managing Enterprise Plugin Repositories](https://www.jetbrains.com/help/idea/managing-enterprise-plugin-repositories.html)" steps using [downloads](https://bitbucket.org/nolequen/idea-inspections/downloads/plugins.xml) as repository URL.
+To be able to download and update the plugin in regular IntelliJ IDEA way, please, follow "[Managing Enterprise Plugin Repositories](https://www.jetbrains.com/help/idea/managing-enterprise-plugin-repositories.html)" steps using link to [plugins.xml](https://github.com/nolequen/idea-inspections-plugin/blob/master/plugins.xml) as repository URL.
