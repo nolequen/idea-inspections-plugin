@@ -2,8 +2,8 @@
 <plugin-repository>
 	<ff>"Inspection"</ff>
 	<category name="Inspection">
-		<idea-plugin url='https://bitbucket.org/nolequen/idea-inspections'>
-			<download-url>https://bitbucket.org/nolequen/idea-inspections/downloads/inspections.jar</download-url>
+		<idea-plugin url='https://github.com/nolequen/idea-inspections-plugin'>
+			<download-url>https://github.com/nolequen/idea-inspections-plugin/releases/download/v0.2/inspections.jar</download-url>
 			<id>ExtraJavaInspections</id>
 			<name>Extra Java Inspections</name>
 			<version>0.2</version>
