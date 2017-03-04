@@ -3,6 +3,7 @@
 ### Inspections List ###
 
 * `@NotNull`/`@Nullable` annotation missing or used incorrectly
+* Synchronization on: public fields, java.lang.String fields, class object and synchronized static methods
 * Final or abstract class rule
 
 ### Plugin Repository ###
