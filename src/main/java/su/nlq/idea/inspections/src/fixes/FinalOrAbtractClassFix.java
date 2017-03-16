@@ -5,6 +5,7 @@ import com.intellij.codeInspection.ProblemDescriptor;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import com.intellij.psi.search.searches.ClassInheritorsSearch;
+import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
 public final class FinalOrAbtractClassFix implements LocalQuickFix {
@@ -13,6 +14,13 @@ public final class FinalOrAbtractClassFix implements LocalQuickFix {
   @NotNull
   public String getFamilyName() {
     return "Add class modifier";
+  }
+
+  @Nls
+  @NotNull
+  @Override
+  public String getName() {
+    return "Add abstract or final class modifier";
   }
 
   @Override
