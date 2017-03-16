@@ -3,10 +3,10 @@
 	<ff>"Inspection"</ff>
 	<category name="Inspection">
 		<idea-plugin url='https://github.com/nolequen/idea-inspections-plugin'>
-			<download-url>https://github.com/nolequen/idea-inspections-plugin/releases/download/v0.3/inspections.jar</download-url>
+			<download-url>https://github.com/nolequen/idea-inspections-plugin/releases/download/v0.3.1/inspections.jar</download-url>
 			<id>ExtraJavaInspections</id>
 			<name>Extra Java Inspections</name>
-			<version>0.3</version>
+			<version>0.3.1</version>
 			<description>Some extra Java inspections.</description>
 		</idea-plugin>
 	</category>
