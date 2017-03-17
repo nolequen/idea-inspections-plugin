@@ -7,13 +7,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public final class PublicOrStringSyncInspection extends SynchronizationInspection {
-  @NotNull
-  private static final String STRING_CLASS_NAME = "java.lang.String";
 
   @Override
   @NotNull
   public String getDisplayName() {
-    return "Synchronization on public or " + STRING_CLASS_NAME + " field";
+    return "Synchronization on public or " + String.class.getName() + " field";
   }
 
   @Override
@@ -54,9 +52,9 @@ public final class PublicOrStringSyncInspection extends SynchronizationInspectio
       if (field.hasModifierProperty("public")) {
         registerProblem(expression, "Synchronization on public field");
       }
-      final PsiClassType typeString = PsiType.getTypeByName(STRING_CLASS_NAME, statement.getProject(), statement.getResolveScope());
+      final PsiClassType typeString = PsiType.getTypeByName(String.class.getName(), statement.getProject(), statement.getResolveScope());
       if (Objects.equals(field.getType(), typeString)) {
-        registerProblem(expression, "Synchronization on " + STRING_CLASS_NAME + " field");
+        registerProblem(expression, "Synchronization on " + String.class.getName() + " field");
       }
     }
   }
