@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface AnnotationsOwner {
   @NotNull
-  AnnotationsOwner empty = annotation -> Optional.empty();
+  AnnotationsOwner empty = annotation -> false;
 
   @SuppressWarnings("StaticMethodNamingConvention")
   @NotNull
@@ -18,8 +18,7 @@ public interface AnnotationsOwner {
     return Optional.ofNullable(element.getModifierList()).map(modifiers -> (AnnotationsOwner) new Wrapper(modifiers)).orElse(empty);
   }
 
-  @NotNull
-  Optional<PsiAnnotation> get(@NotNull Class<? extends Annotation> annotation);
+  boolean has(@NotNull Class<? extends Annotation> annotation);
 
   final class Wrapper implements AnnotationsOwner {
     @NotNull
@@ -29,10 +28,9 @@ public interface AnnotationsOwner {
       this.modifiers = modifiers;
     }
 
-    @NotNull
     @Override
-    public Optional<PsiAnnotation> get(@NotNull Class<? extends Annotation> annotation) {
-      return Optional.ofNullable(modifiers.findAnnotation(annotation.getCanonicalName()));
+    public boolean has(@NotNull Class<? extends Annotation> annotation) {
+      return modifiers.findAnnotation(annotation.getCanonicalName()) != null;
     }
   }
 }

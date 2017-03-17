@@ -88,7 +88,7 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
           return false;
         }
         final AnnotationsOwner owner = AnnotationsOwner.of(member);
-        return !owner.get(NotNull.class).isPresent() && !owner.get(Nullable.class).isPresent();
+        return !owner.has(NotNull.class) && !owner.has(Nullable.class);
       }
     },
 
@@ -96,7 +96,7 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
       @Override
       public boolean test(@NotNull PsiModifierListOwner member, @NotNull PsiType type) {
         final AnnotationsOwner owner = AnnotationsOwner.of(member);
-        return owner.get(NotNull.class).isPresent() && owner.get(Nullable.class).isPresent();
+        return owner.has(NotNull.class) && owner.has(Nullable.class);
       }
     },
 
@@ -107,7 +107,14 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
           return false;
         }
         final AnnotationsOwner owner = AnnotationsOwner.of(member);
-        return owner.get(NotNull.class).isPresent() || owner.get(Nullable.class).isPresent();
+        return owner.has(NotNull.class) || owner.has(Nullable.class);
+      }
+    },
+
+    TransientNotNull("Transient fields cannot be annotated with @NotNull") {
+      @Override
+      public boolean test(@NotNull PsiModifierListOwner member, @NotNull PsiType type) {
+        return member.hasModifierProperty(PsiModifier.TRANSIENT) && AnnotationsOwner.of(member).has(NotNull.class);
       }
     };
 
