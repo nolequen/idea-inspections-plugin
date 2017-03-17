@@ -49,7 +49,7 @@ public final class PublicOrStringSyncInspection extends SynchronizationInspectio
         return;
       }
       final PsiField field = (PsiField) element;
-      if (field.hasModifierProperty("public")) {
+      if (field.hasModifierProperty(PsiModifier.PUBLIC)) {
         registerProblem(expression, "Synchronization on public field");
       }
       final PsiClassType typeString = PsiType.getTypeByName(String.class.getName(), statement.getProject(), statement.getResolveScope());
