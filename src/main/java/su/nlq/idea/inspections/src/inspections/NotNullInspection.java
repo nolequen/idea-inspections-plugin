@@ -103,7 +103,7 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
     AnnotatedPrimitive("Primitives cannot be annotated with @NotNull or @Nullable") {
       @Override
       public boolean test(@NotNull PsiModifierListOwner member, @NotNull PsiType type) {
-        if (!TypeConversionUtil.isPrimitive(type.getCanonicalText(false))) {
+        if (!(type instanceof PsiPrimitiveType)) {
           return false;
         }
         final AnnotationsOwner owner = AnnotationsOwner.of(member);
