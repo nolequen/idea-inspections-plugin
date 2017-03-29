@@ -1,4 +1,4 @@
-package fixes;
+package su.nlq.idea.inspections.src.fixes;
 
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemDescriptor;

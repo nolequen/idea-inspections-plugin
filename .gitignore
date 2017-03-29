@@ -1,7 +1,13 @@
 .idea/
-out/
+build/
 
 *.iml
 *.jar
+
+.gradle/
+gradle/
+gradlew*
+
+src/test/
 
 !.gitignore

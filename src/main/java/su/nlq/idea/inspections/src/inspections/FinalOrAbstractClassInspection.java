@@ -1,4 +1,4 @@
-package inspections;
+package su.nlq.idea.inspections.src.inspections;
 
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.*;
@@ -6,11 +6,11 @@ import com.intellij.psi.PsiAnonymousClass;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiModifier;
 import com.intellij.psi.PsiTypeParameter;
-import fixes.FinalOrAbtractClassFix;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import su.nlq.idea.inspections.src.fixes.FinalOrAbtractClassFix;
 
 public final class FinalOrAbstractClassInspection extends BaseJavaLocalInspectionTool {
   @NotNull

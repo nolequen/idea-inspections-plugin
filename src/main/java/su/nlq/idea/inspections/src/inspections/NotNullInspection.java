@@ -1,14 +1,13 @@
-package inspections;
+package su.nlq.idea.inspections.src.inspections;
 
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.*;
 import com.intellij.psi.*;
-import com.intellij.psi.util.TypeConversionUtil;
-import fixes.InsertAnnotationFix;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import su.nlq.idea.inspections.src.fixes.InsertAnnotationFix;
 
 import java.util.ArrayList;
 import java.util.Arrays;

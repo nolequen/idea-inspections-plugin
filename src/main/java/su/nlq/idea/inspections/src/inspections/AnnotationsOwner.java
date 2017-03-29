@@ -1,6 +1,5 @@
-package inspections;
+package su.nlq.idea.inspections.src.inspections;
 
-import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiModifierList;
 import com.intellij.psi.PsiModifierListOwner;
 import org.jetbrains.annotations.NotNull;
