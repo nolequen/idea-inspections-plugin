@@ -34,7 +34,7 @@ public final class InsertAnnotationFix implements LocalQuickFix {
     }
     final PsiModifierList modifiers = ((PsiModifierListOwner) element).getModifierList();
     if (modifiers != null) {
-      modifiers.addBefore(createAnnotation(project, element), modifiers.getFirstChild());
+      modifiers.addAfter(createAnnotation(project, element), modifiers.getLastChild());
     }
   }
 
