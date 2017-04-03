@@ -2,6 +2,7 @@ package su.nlq.idea.inspections.src.inspections;
 
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.*;
+import com.intellij.codeInspection.ui.SingleCheckboxOptionsPanel;
 import com.intellij.psi.*;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NonNls;
@@ -9,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.nlq.idea.inspections.src.fixes.InsertAnnotationFix;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -19,8 +21,8 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
   @NotNull
   private static final ProblemHighlightType HIGHLIGHT_TYPE = ProblemHighlightType.GENERIC_ERROR_OR_WARNING;
 
-  @NotNull
-  private static final LocalQuickFix[] fixes = {new InsertAnnotationFix(NotNull.class), new InsertAnnotationFix(Nullable.class)};
+  @SuppressWarnings("PublicField")
+  public boolean insertFirst = true;
 
   public NotNullInspection() {
   }
@@ -28,6 +30,11 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
   @Override
   public boolean isEnabledByDefault() {
     return true;
+  }
+
+  @Override
+  public JComponent createOptionsPanel() {
+    return new SingleCheckboxOptionsPanel("Place annotation as first modifier", this, "insertFirst");
   }
 
   @Override
@@ -130,11 +137,13 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
     }
   }
 
-  private static final class ProblemDescriptors {
+  private final class ProblemDescriptors {
     @NotNull
     private final InspectionManager manager;
     @NotNull
     private final Collection<ProblemDescriptor> descriptors = new ArrayList<>();
+    @NotNull
+    private final LocalQuickFix[] fixes = {new InsertAnnotationFix(NotNull.class, insertFirst), new InsertAnnotationFix(Nullable.class, insertFirst)};
 
     public ProblemDescriptors(@NotNull InspectionManager manager) {
       this.manager = manager;

@@ -9,9 +9,12 @@ import org.jetbrains.annotations.NotNull;
 public final class InsertAnnotationFix implements LocalQuickFix {
   @NotNull
   private final String annotationText;
+  @NotNull
+  private final InsertionPlace place;
 
-  public InsertAnnotationFix(@NotNull Class<?> annotationClass) {
+  public InsertAnnotationFix(@NotNull Class<?> annotationClass, boolean insertFirst) {
     this.annotationText = '@' + annotationClass.getSimpleName();
+    this.place = insertFirst ? InsertionPlace.First : InsertionPlace.Last;
   }
 
   @Override
@@ -33,13 +36,28 @@ public final class InsertAnnotationFix implements LocalQuickFix {
       return;
     }
     final PsiModifierList modifiers = ((PsiModifierListOwner) element).getModifierList();
-    if (modifiers != null) {
-      modifiers.addAfter(createAnnotation(project, element), modifiers.getLastChild());
+    if (modifiers == null) {
+      return;
     }
+    final PsiAnnotation annotation = JavaPsiFacade.getElementFactory(project).createAnnotationFromText(annotationText, element);
+    place.insert(modifiers, annotation);
   }
 
-  @NotNull
-  private PsiAnnotation createAnnotation(@NotNull Project project, @NotNull PsiElement element) {
-    return JavaPsiFacade.getElementFactory(project).createAnnotationFromText(annotationText, element);
+  private enum InsertionPlace {
+    First {
+      @Override
+      public void insert(@NotNull PsiModifierList modifiers, @NotNull PsiAnnotation annotation) {
+        modifiers.addBefore(annotation, modifiers.getFirstChild());
+      }
+    },
+
+    Last {
+      @Override
+      public void insert(@NotNull PsiModifierList modifiers, @NotNull PsiAnnotation annotation) {
+        modifiers.addAfter(annotation, modifiers.getLastChild());
+      }
+    };
+
+    public abstract void insert(@NotNull PsiModifierList modifiers, @NotNull PsiAnnotation annotation);
   }
 }
