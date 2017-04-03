@@ -33,6 +33,7 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
   }
 
   @Override
+  @NotNull
   public JComponent createOptionsPanel() {
     return new SingleCheckboxOptionsPanel("Place annotation as first modifier", this, "insertFirst");
   }
