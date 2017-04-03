@@ -1,9 +1,10 @@
 <idea-plugin>
   <id>ExtraJavaInspections</id>
   <name>Extra Java Inspections</name>
-  <version>0.3.1</version>
+  <version>0.3.2</version>
   <description>Some extra Java inspections.</description>
-  <idea-version since-build="139.0"/>
+  <idea-version since-build="139.0" />
+  <depends>com.intellij.modules.java</depends>
   <application-components>
     <component>
       <implementation-class>su.nlq.idea.inspections.src.inspections.InspectionRegistration</implementation-class>
