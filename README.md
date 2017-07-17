@@ -1,5 +1,7 @@
 # Extra Java Inspections IntelliJ IDEA plugin #
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/be99a339bf174862b0f826a04f731a65)](https://www.codacy.com/app/nolequen/idea-inspections-plugin?utm_source=github.com&utm_medium=referral&utm_content=nolequen/idea-inspections-plugin&utm_campaign=badger)
+
 ### Inspections List ###
 
 * `@NotNull`/`@Nullable` annotation missing or used incorrectly
