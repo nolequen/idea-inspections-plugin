@@ -6,14 +6,10 @@ apply plugin: 'java'
 apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'idea'
 
-group 'su.nlq.idea.inspections'
+group 'su.nlq'
 version '0.3.2'
 
 sourceCompatibility = 1.8
-
-repositories {
-  mavenCentral()
-}
 
 intellij {
   updateSinceUntilBuild false

@@ -1,4 +1,4 @@
-package su.nlq.idea.inspections.src.inspections;
+package su.nlq.idea.inspections;
 
 import com.intellij.psi.PsiModifierList;
 import com.intellij.psi.PsiModifierListOwner;

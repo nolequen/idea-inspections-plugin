@@ -1,4 +1,4 @@
-package su.nlq.idea.inspections.src.inspections;
+package su.nlq.idea.inspections;
 
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.*;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import su.nlq.idea.inspections.src.fixes.FinalOrAbtractClassFix;
+import su.nlq.idea.inspections.fixes.FinalOrAbtractClassFix;
 
 public final class FinalOrAbstractClassInspection extends BaseJavaLocalInspectionTool {
   @NotNull

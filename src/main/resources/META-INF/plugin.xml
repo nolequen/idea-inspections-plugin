@@ -7,7 +7,7 @@
   <depends>com.intellij.modules.java</depends>
   <application-components>
     <component>
-      <implementation-class>su.nlq.idea.inspections.src.inspections.InspectionRegistration</implementation-class>
+      <implementation-class>su.nlq.idea.inspections.InspectionRegistration</implementation-class>
     </component>
   </application-components>
 </idea-plugin>
