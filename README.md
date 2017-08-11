@@ -1,6 +1,6 @@
 # Extra Java Inspections IntelliJ IDEA plugin #
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/be99a339bf174862b0f826a04f731a65)](https://www.codacy.com/app/nolequen/idea-inspections-plugin?utm_source=github.com&utm_medium=referral&utm_content=nolequen/idea-inspections-plugin&utm_campaign=badger)
+[![Codebeat](https://codebeat.co/badges/bc0a9319-0682-4db7-97b6-cc9749e44b75)](https://codebeat.co/projects/github-com-nolequen-idea-inspections-plugin-master)
 
 ### Inspections List ###
 
