@@ -7,12 +7,9 @@ apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'idea'
 
 group 'su.nlq'
-version '0.3.2'
-
-sourceCompatibility = 1.8
+version '0.4.0'
 
 intellij {
-  version 'IC-2019.3'
   updateSinceUntilBuild false
   plugins = ['java']
 }
