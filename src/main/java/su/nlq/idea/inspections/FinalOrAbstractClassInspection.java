@@ -25,6 +25,13 @@ public final class FinalOrAbstractClassInspection extends AbstractBaseJavaLocalI
   @Override
   @Nls
   @NotNull
+  public String getGroupDisplayName() {
+    return InspectionsBundle.message("group.names.class.structure");
+  }
+
+  @Override
+  @Nls
+  @NotNull
   public String getDisplayName() {
     return "Class should be either final or abstract";
   }
