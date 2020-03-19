@@ -12,6 +12,7 @@ version '0.3.2'
 sourceCompatibility = 1.8
 
 intellij {
+  version 'IC-2019.3'
   updateSinceUntilBuild false
   plugins = ['java']
 }
