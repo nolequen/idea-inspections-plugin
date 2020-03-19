@@ -1,6 +1,5 @@
 package su.nlq.idea.inspections;
 
-import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.*;
 import com.intellij.psi.PsiAnonymousClass;
 import com.intellij.psi.PsiClass;
@@ -12,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.nlq.idea.inspections.fixes.FinalOrAbtractClassFix;
 
-public final class FinalOrAbstractClassInspection extends BaseJavaLocalInspectionTool {
+public final class FinalOrAbstractClassInspection extends AbstractBaseJavaLocalInspectionTool {
   @NotNull
   private static final ProblemHighlightType HIGHLIGHT_TYPE = ProblemHighlightType.GENERIC_ERROR_OR_WARNING;
   @NotNull
@@ -21,13 +20,6 @@ public final class FinalOrAbstractClassInspection extends BaseJavaLocalInspectio
   @Override
   public boolean isEnabledByDefault() {
     return true;
-  }
-
-  @Override
-  @Nls
-  @NotNull
-  public String getGroupDisplayName() {
-    return GroupNames.BUGS_GROUP_NAME;
   }
 
   @Override

@@ -1,34 +1,15 @@
 package su.nlq.idea.inspections;
 
 import com.intellij.codeInspection.InspectionToolProvider;
-import com.intellij.openapi.components.ApplicationComponent;
 import org.jetbrains.annotations.NotNull;
 
-public final class InspectionRegistration implements ApplicationComponent, InspectionToolProvider {
+public final class InspectionRegistration implements InspectionToolProvider {
 
-  public InspectionRegistration() {
-  }
-
-  @Override
-  public void initComponent() {
-    // do nothing
-  }
-
-  @Override
-  public void disposeComponent() {
-    // do nothing
-  }
-
-  @Override
+  @SuppressWarnings({"rawtypes", "unchecked"})
   @NotNull
-  public String getComponentName() {
-    return "InspectionRegistration";
-  }
-
   @Override
-  @NotNull
-  public Class<?>[] getInspectionClasses() {
-    return new Class<?>[]{
+  public Class[] getInspectionClasses() {
+    return new Class[]{
         NotNullInspection.class,
         FinalOrAbstractClassInspection.class,
         StaticSyncInspection.class,

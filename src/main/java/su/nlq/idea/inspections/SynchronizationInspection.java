@@ -1,7 +1,7 @@
 package su.nlq.idea.inspections;
 
-import com.intellij.codeInsight.daemon.GroupNames;
-import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
+import com.intellij.codeInspection.AbstractBaseJavaLocalInspectionTool;
+import com.intellij.codeInspection.InspectionsBundle;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -10,7 +10,7 @@ import com.intellij.psi.PsiElementVisitor;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
-public abstract class SynchronizationInspection extends BaseJavaLocalInspectionTool {
+public abstract class SynchronizationInspection extends AbstractBaseJavaLocalInspectionTool {
 
   @Override
   public final boolean isEnabledByDefault() {
@@ -21,7 +21,7 @@ public abstract class SynchronizationInspection extends BaseJavaLocalInspectionT
   @Nls
   @NotNull
   public final String getGroupDisplayName() {
-    return GroupNames.THREADING_GROUP_NAME;
+    return InspectionsBundle.message("group.names.concurrency.annotation.issues");
   }
 
   @NotNull

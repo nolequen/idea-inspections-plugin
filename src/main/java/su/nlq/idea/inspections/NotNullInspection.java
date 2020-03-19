@@ -1,6 +1,5 @@
 package su.nlq.idea.inspections;
 
-import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.*;
 import com.intellij.codeInspection.ui.SingleCheckboxOptionsPanel;
 import com.intellij.psi.*;
@@ -17,15 +16,12 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.function.BiPredicate;
 
-public final class NotNullInspection extends BaseJavaLocalInspectionTool {
+public final class NotNullInspection extends AbstractBaseJavaLocalInspectionTool {
   @NotNull
   private static final ProblemHighlightType HIGHLIGHT_TYPE = ProblemHighlightType.GENERIC_ERROR_OR_WARNING;
 
   @SuppressWarnings("PublicField")
   public boolean insertFirst = true;
-
-  public NotNullInspection() {
-  }
 
   @Override
   public boolean isEnabledByDefault() {
@@ -42,7 +38,7 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
   @Nls
   @NotNull
   public String getGroupDisplayName() {
-    return GroupNames.BUGS_GROUP_NAME;
+    return InspectionsBundle.message("group.names.probable.bugs");
   }
 
   @Override
@@ -133,7 +129,7 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
       return Arrays.stream(Problem.values()).filter(problem -> problem.test(member, type)).findFirst();
     }
 
-    private Problem(@NotNull String message) {
+    Problem(@NotNull String message) {
       this.message = message;
     }
   }
@@ -158,7 +154,7 @@ public final class NotNullInspection extends BaseJavaLocalInspectionTool {
 
     @Nullable
     public ProblemDescriptor[] toArray() {
-      return descriptors.isEmpty() ? null : descriptors.toArray(new ProblemDescriptor[descriptors.size()]);
+      return descriptors.isEmpty() ? null : descriptors.toArray(new ProblemDescriptor[0]);
     }
   }
 }
