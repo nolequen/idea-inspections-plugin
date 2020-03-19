@@ -1,4 +1,4 @@
-<idea-plugin>
+<idea-plugin url='https://github.com/nolequen/idea-inspections-plugin'>
   <id>ExtraJavaInspections</id>
   <name>Extra Java Inspections</name>
   <vendor email="nolequen@gmail.com" url="nlq.su">Nolequen</vendor>
