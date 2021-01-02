@@ -7,19 +7,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public final class PublicOrStringSyncInspection extends SynchronizationInspection {
-
-  @Override
-  @NotNull
-  public String getDisplayName() {
-    return "Synchronization on public or " + String.class.getName() + " field";
-  }
-
-  @Override
-  @NotNull
-  public String getShortName() {
-    return "PublicOrStringSyncInspection";
-  }
-
   @NotNull
   @Override
   protected ElementVisitor buildVisitor(@NotNull ProblemsHolder holder) {

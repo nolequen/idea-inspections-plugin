@@ -3,8 +3,6 @@ package su.nlq.idea.inspections;
 import com.intellij.codeInspection.*;
 import com.intellij.codeInspection.ui.SingleCheckboxOptionsPanel;
 import com.intellij.psi.*;
-import org.jetbrains.annotations.Nls;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.nlq.idea.inspections.fixes.InsertAnnotationFix;
@@ -24,35 +22,9 @@ public final class NotNullInspection extends AbstractBaseJavaLocalInspectionTool
   public boolean insertFirst = true;
 
   @Override
-  public boolean isEnabledByDefault() {
-    return true;
-  }
-
-  @Override
   @NotNull
   public JComponent createOptionsPanel() {
     return new SingleCheckboxOptionsPanel("Place annotation as first modifier", this, "insertFirst");
-  }
-
-  @Override
-  @Nls
-  @NotNull
-  public String getGroupDisplayName() {
-    return InspectionsBundle.message("group.names.probable.bugs");
-  }
-
-  @Override
-  @Nls
-  @NotNull
-  public String getDisplayName() {
-    return "@NotNull/@Nullable missing";
-  }
-
-  @Override
-  @NonNls
-  @NotNull
-  public String getShortName() {
-    return "NotNullNullableValidation";
   }
 
   @Nullable

@@ -1,11 +1,22 @@
 <idea-plugin url='https://github.com/nolequen/idea-inspections-plugin'>
-  <id>ExtraJavaInspections</id>
-  <name>Extra Java Inspections</name>
-  <vendor email="nolequen@gmail.com" url="nlq.su">Nolequen</vendor>
-  <description>Some extra Java inspections.</description>
-  <idea-version since-build="139.0"/>
-  <depends>com.intellij.modules.java</depends>
-  <extensions defaultExtensionNs="com.intellij">
-    <inspectionToolProvider implementation="su.nlq.idea.inspections.InspectionRegistration"/>
-  </extensions>
+    <id>ExtraJavaInspections</id>
+    <name>Extra Java Inspections</name>
+    <vendor email="nolequen@gmail.com" url="nlq.su">Nolequen</vendor>
+    <description>Some extra Java inspections that will make your code a bit cleaner.</description>
+    <idea-version since-build="139.0"/>
+    <depends>com.intellij.modules.java</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <localInspection groupName="Group.names.probable.bugs" enabledByDefault="true" shortName="NotNullNullableValidation"
+                         displayName="@NotNull/@Nullable missing"
+                         implementationClass="su.nlq.idea.inspections.NotNullInspection"/>
+        <localInspection groupName="Group.names.class.structure" enabledByDefault="true" shortName="FinalOrAbstractClass"
+                         displayName="Class should be either final or abstract"
+                         implementationClass="su.nlq.idea.inspections.FinalOrAbstractClassInspection"/>
+        <localInspection groupName="Group.names.concurrency.annotation.issues" enabledByDefault="true" shortName="PublicOrStringSyncInspection"
+                         displayName="Synchronization on public or java.lang.String field"
+                         implementationClass="su.nlq.idea.inspections.PublicOrStringSyncInspection"/>
+        <localInspection groupName="Group.names.concurrency.annotation.issues" enabledByDefault="true" shortName="StaticSyncInspection"
+                         displayName="Synchronized static method or class object synchronization"
+                         implementationClass="su.nlq.idea.inspections.StaticSyncInspection"/>
+    </extensions>
 </idea-plugin>
