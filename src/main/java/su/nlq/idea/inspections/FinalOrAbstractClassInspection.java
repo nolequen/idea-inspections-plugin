@@ -5,8 +5,6 @@ import com.intellij.psi.PsiAnonymousClass;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiModifier;
 import com.intellij.psi.PsiTypeParameter;
-import org.jetbrains.annotations.Nls;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.nlq.idea.inspections.fixes.FinalOrAbtractClassFix;
@@ -16,32 +14,6 @@ public final class FinalOrAbstractClassInspection extends AbstractBaseJavaLocalI
   private static final ProblemHighlightType HIGHLIGHT_TYPE = ProblemHighlightType.GENERIC_ERROR_OR_WARNING;
   @NotNull
   private static final LocalQuickFix[] fixes = {new FinalOrAbtractClassFix()};
-
-  @Override
-  public boolean isEnabledByDefault() {
-    return true;
-  }
-
-  @Override
-  @Nls
-  @NotNull
-  public String getGroupDisplayName() {
-    return InspectionsBundle.message("group.names.class.structure");
-  }
-
-  @Override
-  @Nls
-  @NotNull
-  public String getDisplayName() {
-    return "Class should be either final or abstract";
-  }
-
-  @Override
-  @NonNls
-  @NotNull
-  public String getShortName() {
-    return "FinalOrAbstractClass";
-  }
 
   @Nullable
   @Override

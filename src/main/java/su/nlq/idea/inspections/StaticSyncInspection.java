@@ -5,19 +5,6 @@ import com.intellij.psi.*;
 import org.jetbrains.annotations.NotNull;
 
 public final class StaticSyncInspection extends SynchronizationInspection {
-
-  @Override
-  @NotNull
-  public String getDisplayName() {
-    return "Synchronized static method or class object synchronization";
-  }
-
-  @Override
-  @NotNull
-  public String getShortName() {
-    return "StaticSyncInspection";
-  }
-
   @NotNull
   @Override
   protected ElementVisitor buildVisitor(@NotNull ProblemsHolder holder) {
