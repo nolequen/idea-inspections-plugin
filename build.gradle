@@ -1,5 +1,5 @@
 plugins {
-  id 'org.jetbrains.intellij' version '0.4.16'
+  id 'org.jetbrains.intellij' version '0.7.2'
 }
 
 apply plugin: 'java'
@@ -7,9 +7,13 @@ apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'idea'
 
 group 'su.nlq'
-version '0.4.1'
+version '0.5.0'
 
 intellij {
   updateSinceUntilBuild false
   plugins = ['java']
+}
+
+repositories {
+  mavenCentral()
 }

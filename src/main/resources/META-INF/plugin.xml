@@ -3,7 +3,7 @@
     <name>Extra Java Inspections</name>
     <vendor email="nolequen@gmail.com" url="nlq.su">Nolequen</vendor>
     <description>Some extra Java inspections that will make your code a bit cleaner.</description>
-    <idea-version since-build="139.0"/>
+    <idea-version since-build="192.0"/>
     <depends>com.intellij.modules.java</depends>
     <extensions defaultExtensionNs="com.intellij">
         <localInspection groupName="Group.names.probable.bugs" enabledByDefault="true" shortName="NotNullNullableValidation"
@@ -18,5 +18,8 @@
         <localInspection groupName="Group.names.concurrency.annotation.issues" enabledByDefault="true" shortName="StaticSyncInspection"
                          displayName="Synchronized static method or class object synchronization"
                          implementationClass="su.nlq.idea.inspections.StaticSyncInspection"/>
+        <localInspection groupName="Group.names.class.undesirableMethods" enabledByDefault="true" shortName="EnumValues"
+                         displayName="Call of enum values() method" suppressId="IgnoreEnumValuesCall"
+                         implementationClass="su.nlq.idea.inspections.EnumValuesInspection"/>
     </extensions>
 </idea-plugin>

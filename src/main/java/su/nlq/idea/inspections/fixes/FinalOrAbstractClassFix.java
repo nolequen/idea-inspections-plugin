@@ -8,7 +8,7 @@ import com.intellij.psi.search.searches.ClassInheritorsSearch;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
-public final class FinalOrAbtractClassFix implements LocalQuickFix {
+public final class FinalOrAbstractClassFix implements LocalQuickFix {
 
   @Override
   @NotNull
