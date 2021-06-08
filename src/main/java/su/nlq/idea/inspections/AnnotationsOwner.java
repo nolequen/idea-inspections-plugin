@@ -13,7 +13,7 @@ public interface AnnotationsOwner {
 
   @SuppressWarnings("StaticMethodNamingConvention")
   @NotNull
-  public static AnnotationsOwner of(@NotNull PsiModifierListOwner element) {
+  static AnnotationsOwner of(@NotNull PsiModifierListOwner element) {
     return Optional.ofNullable(element.getModifierList()).map(modifiers -> (AnnotationsOwner) new Wrapper(modifiers)).orElse(empty);
   }
 

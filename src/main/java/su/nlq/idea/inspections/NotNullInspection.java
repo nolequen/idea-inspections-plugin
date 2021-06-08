@@ -3,6 +3,7 @@ package su.nlq.idea.inspections;
 import com.intellij.codeInspection.*;
 import com.intellij.codeInspection.ui.SingleCheckboxOptionsPanel;
 import com.intellij.psi.*;
+import com.intellij.util.xml.ui.TextPanel;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.nlq.idea.inspections.fixes.InsertAnnotationFix;

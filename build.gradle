@@ -7,7 +7,7 @@ apply plugin: 'org.jetbrains.intellij'
 apply plugin: 'idea'
 
 group 'su.nlq'
-version '0.5.0'
+version '0.6.0'
 
 intellij {
   updateSinceUntilBuild false

@@ -21,5 +21,8 @@
         <localInspection groupName="Group.names.class.undesirableMethods" enabledByDefault="true" shortName="EnumValues"
                          displayName="Call of enum values() method" suppressId="IgnoreEnumValuesCall"
                          implementationClass="su.nlq.idea.inspections.EnumValuesInspection"/>
+        <localInspection groupName="Group.names.probable.bugs" enabledByDefault="true" shortName="NotAnnotatedReference"
+                         displayName="Annotated element is referenced from not annotated code" suppressId="IgnoreNotAnnotatedReference"
+                         implementationClass="su.nlq.idea.inspections.AnnotatedInspection"/>
     </extensions>
 </idea-plugin>
