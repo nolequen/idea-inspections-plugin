@@ -19,13 +19,13 @@ import java.util.List;
 public final class AnnotatedInspection extends AbstractBaseJavaLocalInspectionTool {
 
   @SuppressWarnings("PublicField")
-  public @NotNull List<String> annotation = new ArrayList<>();
+  public @NotNull List<String> annotations = new ArrayList<>();
 
   @Override
   @NotNull
   public JComponent createOptionsPanel() {
     final MultipleCheckboxOptionsPanel panel = new MultipleCheckboxOptionsPanel(this);
-    panel.add(SpecialAnnotationsUtil.createSpecialAnnotationsListControl(annotation, "Report annotations:"), "growx, wrap");
+    panel.add(SpecialAnnotationsUtil.createSpecialAnnotationsListControl(annotations, "Report annotations:"), "growx, wrap");
     return panel;
   }
 
@@ -38,9 +38,11 @@ public final class AnnotatedInspection extends AbstractBaseJavaLocalInspectionTo
       public void visitMethodCallExpression(@NotNull PsiMethodCallExpression expression) {
         final PsiElement element = expression.getMethodExpression();
         final PsiMethod member = expression.resolveMethod();
-        if (!valid(element, member)) {
-          problems.registerProblem(element, "Annotated with @" + annotation + " method is called from not annotated code");
-        }
+        annotations.forEach(annotation -> {
+          if (!valid(element, member, annotation)) {
+            problems.registerProblem(element, "Annotated with @" + annotation + " method is called from not annotated code");
+          }
+        });
       }
 
       @Override
@@ -50,14 +52,17 @@ public final class AnnotatedInspection extends AbstractBaseJavaLocalInspectionTo
           return;
         }
         final PsiMethod method = expression.resolveMethod();
-        if (!valid(reference, method)) {
-          problems.registerProblem(reference, "Annotated with @" + annotation + " method is called from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
-          return;
-        }
+        annotations.forEach(annotation -> {
+          if (!valid(reference, method, annotation)) {
+            problems.registerProblem(reference, "Annotated with @" + annotation + " method is called from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
+          }
+        });
         final PsiMember member = ObjectUtils.tryCast(reference.resolve(), PsiMember.class);
-        if (!valid(reference, member)) {
-          problems.registerProblem(reference, "Annotated with @" + annotation + " field is referenced from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
-        }
+        annotations.forEach(annotation -> {
+          if (!valid(reference, member, annotation)) {
+            problems.registerProblem(reference, "Annotated with @" + annotation + " field is referenced from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
+          }
+        });
       }
 
       @Override
@@ -65,9 +70,11 @@ public final class AnnotatedInspection extends AbstractBaseJavaLocalInspectionTo
         final PsiElement element = expression.resolve();
         if (element instanceof PsiMethod) {
           final PsiMethod method = (PsiMethod) element;
-          if (!valid(expression, method)) {
-            problems.registerProblem(expression, "Annotated with @" + annotation + " method is called from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
-          }
+          annotations.forEach(annotation -> {
+            if (!valid(expression, method, annotation)) {
+              problems.registerProblem(expression, "Annotated with @" + annotation + " method is called from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
+            }
+          });
         }
       }
 
@@ -76,9 +83,11 @@ public final class AnnotatedInspection extends AbstractBaseJavaLocalInspectionTo
         final PsiElement element = reference.resolve();
         if (element instanceof PsiField) {
           final PsiField field = (PsiField) element;
-          if (!valid(reference, field)) {
-            problems.registerProblem(reference, "Annotated with @" + annotation + " field is referenced from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
-          }
+          annotations.forEach(annotation -> {
+            if (!valid(reference, field, annotation)) {
+              problems.registerProblem(reference, "Annotated with @" + annotation + " field is referenced from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
+            }
+          });
         }
       }
 
@@ -96,9 +105,11 @@ public final class AnnotatedInspection extends AbstractBaseJavaLocalInspectionTo
         final PsiElement element = reference.resolve();
         if (element instanceof PsiClass) {
           final PsiClass clazz = (PsiClass) element;
-          if (!valid(reference, clazz)) {
-            problems.registerProblem(reference, "Annotated with @" + annotation + " class is referenced from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
-          }
+          annotations.forEach(annotation -> {
+            if (!valid(reference, clazz, annotation)) {
+              problems.registerProblem(reference, "Annotated with @" + annotation + " class is referenced from not annotated code", ProblemHighlightType.GENERIC_ERROR_OR_WARNING);
+            }
+          });
         }
       }
     };
@@ -119,29 +130,29 @@ public final class AnnotatedInspection extends AbstractBaseJavaLocalInspectionTo
     while (true);
   }
 
-  private boolean valid(@NotNull PsiElement element, @Nullable PsiMember member) {
+  private boolean valid(@NotNull PsiElement element, @Nullable PsiMember member, @NotNull String annotation) {
     if (member == null) {
       return true;
     }
-    if (!annotated(member)) {
+    if (!annotated(member, annotation)) {
       return true;
     }
-    if (annotated(topLevelParent(element, PsiMethod.class))) {
+    if (annotated(topLevelParent(element, PsiMethod.class), annotation)) {
       return true;
     }
-    if (annotated(topLevelParent(element, PsiField.class))) {
+    if (annotated(topLevelParent(element, PsiField.class), annotation)) {
       return true;
     }
-    return annotated(topLevelParent(element, PsiClass.class));
+    return annotated(topLevelParent(element, PsiClass.class), annotation);
   }
 
-  private boolean annotated(@Nullable PsiMember member) {
+  private boolean annotated(@Nullable PsiMember member, @NotNull String annotation) {
     if (member == null) {
       return false;
     }
     if (AnnotationUtil.isAnnotated(member, annotation, AnnotationUtil.CHECK_EXTERNAL)) {
       return true;
     }
-    return annotated(member.getContainingClass());
+    return annotated(member.getContainingClass(), annotation);
   }
 }
