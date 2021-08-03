@@ -1,5 +1,8 @@
-# Extra Java Inspections IntelliJ IDEA plugin #
+# DEPRECATED
 
+The project is no longer supported.
+
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 [![Codebeat](https://codebeat.co/badges/bc0a9319-0682-4db7-97b6-cc9749e44b75)](https://codebeat.co/projects/github-com-nolequen-idea-inspections-plugin-master)
 
 ### Inspections List ###
